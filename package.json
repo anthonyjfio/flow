@@ -1,0 +1,86 @@
+{
+  "name": "flow",
+  "version": "0.0.1",
+  "homepage": "https://github.com/anthonyfio/flow",
+  "description": "Work enviorment that lets you get into the flow",
+  "keywords": [
+    "html5",
+    "css",
+    "workflow",
+    "work eviorment",
+    "npm",
+    "scripts",
+    "browser-sync",
+    "postcss",
+    "cssnext"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anthonyfio/flow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anthonyfio/flow/issues",
+    "email": "anthony@anthonyfiorani.com"
+  },
+  "author": {
+    "name": "Anthony Fiorani",
+    "email": "anthony@anthonyfiorani.com",
+    "url": "anthonyfiorani.com"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "dependencies": {
+    "basscss": "^7.0.4",
+    "basscss-base-reset": "^2.0.2",
+    "basscss-base-typography": "^2.0.1",
+    "basscss-borders": "^2.0.4",
+    "basscss-btn": "^1.0.1",
+    "basscss-color-base": "^2.0.0",
+    "basscss-colors": "^2.0.0",
+    "basscss-defaults": "^2.1.1",
+    "basscss-utility-layout": "^2.0.3",
+    "basscss-utility-typography": "^2.0.0",
+    "basscss-white-space": "^1.1.2",
+    "normalize.css": "^3.0.3",
+    "page": "^1.6.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.0.3",
+    "babel": "^5.8.23",
+    "browser-sync": "^2.9.11",
+    "browserify": "^11.2.0",
+    "cssnano": "^3.3.1",
+    "cssnext": "^1.8.4",
+    "imagemin-cli": "^1.0.0",
+    "minify": "^2.0.0",
+    "node-zopfli": "^1.4.0",
+    "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.2.0",
+    "postcss-import": "^7.1.0",
+    "sane": "^1.3.0",
+    "uglify-js": "^2.5.0"
+  },
+  "scripts": {
+    "prestart": "npm run build:dev -s",
+    "start": "parallelshell 'npm run watch:html -s' 'npm run watch:css -s' 'npm run watch:js -s' 'npm run server -s'",
+    "prebuild:dev": "bash bin/start.sh",
+    "build:dev": "parallelshell 'npm run build:html -s' 'npm run build:css -s' 'npm run build:js -s' 'npm run img -s'",
+    "build:html": "cp src/*.html dist/",
+    "watch:html": "sane 'npm run build:html -s' src --glob='**/*.html'",
+    "build:css": "postcss -u postcss-import -u cssnext -u autoprefixer -o dist/css/main.css src/css/main.css",
+    "watch:css": "sane 'npm run build:css -s' src/css --glob='**/*.css'",
+    "build:js": "browserify src/js/main.js | babel -o dist/js/main.js",
+    "watch:js": "sane 'npm run build:js -s' src/js --glob='**/*.js'",
+    "img": "cp src/img/* dist/img/",
+    "server": "browser-sync start --reload-delay 35 --server dist/ --files 'dist/*.html, dist/css/*.css, dist/js/*.js'",
+    "prebuild:prod": "bash bin/start.sh -s",
+    "build:prod": "parallelshell 'npm run build:html:prod -s' 'npm run build:css -s' 'npm run build:js -s' 'npm run opti:img'",
+    "build:html:prod": "minify src/index.html > dist/index.html",
+    "build:css:prod": "postcss -u postcss-import -u cssnext -u postcss-colormin -u postcss-minify-font-values -u postcss-merge-longhand -u postcss-minify-selectors -u postcss-unique-selectors -u postcss-zindex -u postcss-merge-rules -u postcss-merge-idents -u postcss-reduce-idents -u postcss-discard-duplicates -u postcss-discard-empty -u postcss-discard-comments --postcss-discard-comments.removeAll true -u postcss-discard-unused -u cssnano -u autoprefixer -o dist/css/main.css src/css/main.css",
+    "build:js:prod": "browserify src/js/main.js | babel | uglifyjs --compress -o dist/js/main.js",
+    "opti:img": "imagemin src/img/* dist/img/",
+    "compress": "$(npm bin)/zopfli -i 1000 dist/index.html & $(npm bin)/zopfli -i 1000 dist/css/main.css & $(npm bin)/zopfli -i 1000 dist/js/main.js & $(npm bin)/zopfli -i 1000 dist/img/193H.jpg && du -lh dist/*.gs && du -lh dist/**/*.gz",
+    "preproduction": "npm run build:prod -s",
+    "production": "npm run compress"
+  }
+}

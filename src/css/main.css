@@ -1,0 +1,47 @@
+@import "normalize.css";
+
+@import "basscss-base-reset";
+@import "basscss-btn";
+@import "basscss-base-typography";
+@import "basscss-color-base";
+
+@import "basscss-utility-layout";
+@import "basscss-utility-typography";
+@import "basscss-white-space";
+
+@import "basscss-borders";
+@import "basscss-colors";
+
+@import "basscss-defaults";
+
+
+
+:root {
+  --dark-gray: #888;
+
+  --background-color: red;
+  --background: red;
+  --link-color: var(--dark-gray);
+  --link-text-decoration: none;
+  font-size: 16px;
+}
+
+@media (min-width: 25em) and (max-width: 50em) {
+  :root {
+    font-size: calc( 16px + (24 - 16) * ( (100vw - 25em) / ( 800 - 400) ));
+  }
+}
+
+@media (min-width: 50em) {
+  :root {
+    font-size: 24px;
+  }
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 100%;
+}
+
