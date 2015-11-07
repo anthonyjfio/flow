@@ -4,7 +4,7 @@ for file in src/*.html
 
 do
   
-  echo "Compressing $file …"
+  echo "Minimizing $file …"
   "$(npm bin)/html-minifier" -o dist/"$(basename "$file")" --collapse-whitespace --remove-comments "$file"
 
   echo "Inlining critical css …"
