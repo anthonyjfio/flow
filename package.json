@@ -53,7 +53,7 @@
   "scripts": {
     "prestart": "npm run build:dev",
     "start": "parallelshell 'npm run watch:html' 'npm run watch:css' 'npm run watch:js' 'npm run server'",
-    "prebuild:dev": "bash scripts/dir-structure.sh",
+    "prebuild:dev": "bash tools/dir-structure.sh",
     "build:dev": "parallelshell 'npm run build:html' 'npm run build:css' 'npm run build:js' 'npm run img'",
     "build:html": "cp src/*.html dist/",
     "watch:html": "sane 'npm run build:html' src --glob='**/*.html'",
@@ -63,13 +63,13 @@
     "watch:js": "sane 'npm run build:js' src/js --glob='**/*.js'",
     "img": "cp src/img/* dist/img/",
     "server": "browser-sync start --reload-delay 35 --server dist/ --files 'dist/*.html, dist/css/*.css, dist/js/*.js'",
-    "prebuild:prod": "bash scripts/dir-structure.sh",
+    "prebuild:prod": "bash tools/dir-structure.sh",
     "build:prod": "npm run build:html && parallelshell 'npm run build:css:prod' 'npm run build:js:prod' 'npm run opti:img' && npm run build:html:prod",
-    "build:html:prod": "bash scripts/html-production.sh",
-    "build:css:prod": "bash scripts/css-production.sh",
+    "build:html:prod": "bash tools/html-production.sh",
+    "build:css:prod": "bash tools/css-production.sh",
     "build:js:prod": "browserify src/js/main.js | babel | uglifyjs --compress -o dist/js/main.js",
     "opti:img": "imagemin src/img/* dist/img/",
-    "compress": "bash scripts/gzip.sh",
+    "compress": "bash tools/gzip.sh",
     "preproduction": "npm run build:prod",
     "production": "npm run compress"
   }
