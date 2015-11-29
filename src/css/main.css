@@ -19,7 +19,7 @@
 :root {
   --dark-gray: #888;
 
-  --body-background-color: red;
+  --body-background-color: green;
   --link-color: var(--dark-gray);
   --link-text-decoration: none;
   font-size: 16px;
