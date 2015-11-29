@@ -1,15 +1,6 @@
 {
   "name": "flow",
   "version": "0.0.1",
-  "keywords": [
-    "html5",
-    "css",
-    "workflow",
-    "work eviorment",
-    "browser-sync",
-    "postcss",
-    "cssnext"
-  ],
   "author": {
     "name": "Anthony Fiorani",
     "email": "anthony@anthonyfiorani.com",
@@ -33,12 +24,15 @@
     "page": "^1.6.4"
   },
   "devDependencies": {
-    "autoprefixer": "^6.0.3",
-    "babel-cli": "^6.2.0",
-    "babel-plugin-transform-minify-booleans": "^6.1.18",
-    "babel-plugin-transform-remove-console": "^6.1.18",
-    "babel-plugin-transform-remove-debugger": "^6.1.18",
-    "babel-preset-es2015": "^6.1.18",
+    "autoprefixer": "^6.1.1",
+    "babel-cli": "^6.2.4",
+    "babel-plugin-transform-member-expression-literals": "^6.2.4",
+    "babel-plugin-transform-merge-sibling-variables": "^6.2.4",
+    "babel-plugin-transform-minify-booleans": "^6.2.4",
+    "babel-plugin-transform-property-literals": "^6.2.4",
+    "babel-plugin-transform-remove-console": "^6.2.4",
+    "babel-plugin-transform-remove-debugger": "^6.2.4",
+    "babel-preset-es2015": "^6.2.4",
     "browser-sync": "^2.9.11",
     "browserify": "^11.2.0",
     "critical": "^0.6.0",
@@ -71,7 +65,7 @@
     "build:prod": "npm run build:html && parallelshell 'npm run build:css:prod' 'npm run build:js:prod' 'npm run opti:img' && npm run build:html:prod",
     "build:html:prod": "bash tools/html-production.sh",
     "build:css:prod": "bash tools/css-production.sh",
-    "build:js:prod": "browserify src/js/main.js | babel --presets es2015 --plugins transform-minify-booleans,transform-remove-console,transform-remove-debugger | uglifyjs --compress -o dist/js/main.js",
+    "build:js:prod": "bash tools/js-production.sh",
     "opti:img": "imagemin src/img/* dist/img/",
     "compress": "bash tools/gzip.sh",
     "preproduction": "npm run build:prod",
