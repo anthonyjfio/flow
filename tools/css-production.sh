@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# For every file in `src/css/` that has a `css` extension do
+# for every file in `src/css/` that has a `css` extension do
 for file in src/css/*.css
 
 do
 
   echo "Generating CSS …"
 
-  # Run through postcss using imports, cssnext and optimizations
+  # line 13 run through postcss using imports, cssnext and optimizations
+  # line 32 output file to dist/css/
+  # line 33 input file
   "$(npm bin)/postcss" \
     -u postcss-import \
     -u cssnext \
@@ -25,24 +27,24 @@ do
     -u postcss-discard-comments \
       --postcss-discard-comments.removeAll true \
     -u postcss-discard-unused \
-    -u cssnano -u autoprefixer \
-    # Output file to `dist/css/`
+    -u cssnano \
+    -u autoprefixer \
     -o dist/css/"$(basename "$file")" \
-    # Input file
     src/css/"$(basename "$file")"
 
-  # Run through uncss
+  # line 41 run through uncss
+  # line 42 pass in html files to check usage
+  # line 43 input file
+  # line 45-47 run through postcss and clean-css to make sure it's optimized
+  # # and has appropriate prefixes
+  # line 48 output file to `dist/css/`
   "$(npm bin)/uncss" \
-    # Pass in `html` files to check usage
     -H dist/*.html \
-    # Input file
     -s css/"$(basename "$file")" | \
-    # Run through postcss again to make sure it's optimized
-    # and has appropriate prefixes
+    "$(npm bin)/cleancss" | \
     "$(npm bin)/postcss" \
     -u cssnano \
     -u autoprefixer \
-    # Output file to `dist/css/`
     -o dist/css/"$(basename "$file")"
 
 done
