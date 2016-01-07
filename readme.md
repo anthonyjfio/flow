@@ -1,6 +1,6 @@
 # Flow
 
-This is a boilerplate setup that I use to make static websites for myself and others.
+This is an experiment in making a boilerplate setup that can be used to make static websites.
 
 Flow requires `node`, `npm` and `bash`
 
