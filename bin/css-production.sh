@@ -12,7 +12,10 @@ do
   # line 33 input file
   "$(npm bin)/postcss" \
     -u postcss-import \
-    -u cssnext \
+    -u postcss-cssnext \
+    -u postcss-custom-media \
+    -u postcss-custom-properties \
+    -u postcss-calc \
     -u postcss-colormin \
     -u postcss-minify-font-values \
     -u postcss-merge-longhand \
@@ -30,7 +33,7 @@ do
     -u cssnano \
     -u autoprefixer \
     -o dist/css/"$(basename "$file")" \
-    src/css/"$(basename "$file")"
+    src/css/"$(basename "$file")" 
 
   # line 41 run through uncss
   # line 42 pass in html files to check usage
@@ -38,13 +41,11 @@ do
   # line 45-47 run through postcss and clean-css to make sure it's optimized
   # # and has appropriate prefixes
   # line 48 output file to `dist/css/`
-  "$(npm bin)/uncss" \
-    -H dist/*.html \
-    -s css/"$(basename "$file")" | \
-    "$(npm bin)/cleancss" | \
-    "$(npm bin)/postcss" \
-    -u cssnano \
-    -u autoprefixer \
-    -o dist/css/"$(basename "$file")"
+
+     "$(npm bin)/cleancss" dist/css/"$(basename "$file")" | \
+     "$(npm bin)/postcss" \
+     -u cssnano \
+     -u autoprefixer \
+     -o dist/css/"$(basename "$file")"
 
 done

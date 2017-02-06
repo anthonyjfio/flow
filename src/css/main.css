@@ -1,24 +1,9 @@
 @import "normalize.css";
 
-@import "basscss-base-reset";
-@import "basscss-btn";
-@import "basscss-base-typography";
-@import "basscss-color-base";
-
-@import "basscss-utility-layout";
-@import "basscss-utility-typography";
-@import "basscss-white-space";
-
-@import "basscss-borders";
-@import "basscss-colors";
-
-@import "basscss-defaults";
-
-
+@import "basscss";
 
 :root {
   --dark-gray: #888;
-
   --body-background-color: green;
   --link-color: var(--dark-gray);
   --link-text-decoration: none;
@@ -36,6 +21,8 @@
     font-size: 24px;
   }
 }
+
+mw-1 { max-width: 17rem }
 
 img {
   display: block;
