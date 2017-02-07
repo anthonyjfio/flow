@@ -1,6 +1,4 @@
-@import "normalize.css";
-
-@import "basscss";
+@import "./modules.css";
 
 :root {
   --dark-gray: #888;

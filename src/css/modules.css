@@ -1,0 +1,191 @@
+@import "normalize.css";
+
+@import "basscss-basic";
+
+@import "basscss-align";
+/* .align-baseline .align-top .align-middle .align-bottom */
+
+@import "basscss-border";
+/* .border .border-top .border-bottom .border-right .border-left .border-none
+.rounded .circle
+.rounded-top .rounded-right .rounded bottom .rounded-left
+.not-rounded
+:root {
+  --border-width: 1px;
+  --border-radius: 3px;
+} */
+
+@import "basscss-flexbox";
+/* .flex .sm-flex .md-flex .lg-flex .flex-column .flex-wrap
+.items-start .items-end .items-center .items-baseline .items-stretch
+.self-start .self-end .self-center .self-baseline .self-stretch 
+.justify-start .justify-end .justify-center .justify-center .justify-between .justify-around
+.content-start .content-end .content-center .content-between .content-around .content-stretch
+.flex-auto .flex-none 
+.order-0 .order-1 .order-2 .order-3 .order-last
+
+@custom-media --breakpoint-sm (min-width: 40em);
+@custom-media --breakpoint-md (min-width: 52em);
+@custom-media --breakpoint-lg (min-width: 64em);*/
+
+@import "basscss-grid";
+/* col .col-right 
+.col-1 .col-2 .col-3 .col-4 .col-5 .col-6 .col-7 .col-8 .col-9 .col-10.col-11.col-12
+
+.lg-col .lg-col-right 
+.lg-col-1 .lg-col-2 .lg-col-3 .lg-col-4 .lg-col-5 .lg-col-6 .lg-col-7 .lg-col-8 .lg-col-9  .lg-col-10 .lg-col-11 .lg-col-12
+
+.md-col .md-col-right 
+.md-col-1 .md-col-2 .md-col-3 .md-col-4 .md-col-5 .md-col-6 .md-col-7 .md-col-8 .md-col-9 .md-col-10 .md-col-11 .md-col-12 
+ 
+.sm-col .sm-col-right 
+.sm-col-1 .sm-col-2 .sm-col-3 .sm-col-4 .sm-col-5 .sm-col-6 .sm-col-7 .sm-col-8 .sm-col-9 .sm-col-10 .sm-col-11 .sm-col-12
+ 
+@custom-media --breakpoint-sm (min-width: 40em);
+@custom-media --breakpoint-md (min-width: 52em);
+@custom-media --breakpoint-lg (min-width: 64em); */
+
+@import "basscss-hide";
+/* .hide .xs-hide .sm-hide .md-hide .lg-hide .display-none
+
+@custom-media --breakpoint-xs (max-width: 40em);
+@custom-media --breakpoint-sm-md (min-width: 40em) and (max-width: 52em);
+@custom-media --breakpoint-md-lg (min-width: 52em) and (max-width: 64em);
+@custom-media --breakpoint-lg (min-width: 64em); */ 
+
+@import "basscss-layout";
+/* .inline .block .inline-block .table .table-cell
+.overflow-hidden .overflow-scroll .overflow-auto
+.clearfix
+.left .right
+.fit
+.max-width-1 .max-width-2 .max-width-3 .max-width-4
+.border-box
+:root {
+  --width-1: 24rem;
+  --width-2: 32rem;
+  --width-3: 48rem;
+  --width-4: 64rem;
+} */
+
+@import "basscss-margin";
+/* .m0 .mt0 .mr0 .mb0 .ml0 .mx0 .my0
+.m1 .mt1 .mr1 .mb1 .ml1 .mx1 .my1
+.m2 .mt2 .mr2 .mb2 .ml2 .mx2 .my2
+.m3 .mt3 .mr3 .mb3 .ml3 .mx3 .my3
+.m4 .mt4 .mr4 .mb4 .ml4 .mx4 .my4
+.mxn1 .mxn2 .mxn3 .mxn4
+.ml-auto .mr-auto .mx-auto 
+:root {
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 2rem;
+  --space-4: 4rem;
+} */
+
+@import "basscss-padding";
+/*
+.p0 .pt0 .pr0 .pb0 .pl0 .px0 .py0 
+.p1 .pt1 .pr1 .pb1 .pl1 .py1 .px1 
+.p2 .pt2 .pr2 .pb2 .pl2 .py2 .px2 
+.p3 .pt3 .pr3 .pb3 .pl3 .py3 .px3 
+.p4 .pt4 .pr4 .pb4 .pl4 .py4 .px4 
+:root {
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 2rem;
+  --space-4: 4rem;
+} */
+
+@import "basscss-position"; 
+/* .relative .absolute .fixed
+ * .z1 .z2 .z3 .z4
+ * .top-0 .right-0 .left-0 .bottom-0
+:root {
+  --z1: 1;
+  --z2: 2;
+  --z3: 3;
+  --z4: 4;
+} */
+
+@import "basscss-type-scale";
+/* .h1 .h2 .h3 .h4 .h5 .h6 
+:root {
+  --h1: 2rem;
+  --h2: 1.5rem;
+  --h3: 1.25rem;
+  --h4: 1rem;
+  --h5: .875rem;
+  --h6: .75rem;
+} */
+
+@import "basscss-typography";
+/* .font-family-inherit .font-size-inherit .text-decoration-none 
+.bold .regular .italic .caps
+.left-align .center .right-align .justify
+.nowrap .break-word 
+.line-height-1 .line-height-2 .line-height-3.line-height-4 
+.list-style-none .underline .truncate .list-reset
+:root {
+  --line-height-1: 1;
+  --line-height-2: 1.125;
+  --line-height-3: 1.25;
+  --line-height-4: 1.5;
+  --letter-spacing: 1;
+  --caps-letter-spacing: .2em;
+  --bold-font-weight: bold;
+} */
+
+
+/*
+@import 'basscss-addons/modules/responsive-margin';
+@import 'basscss-addons/modules/responsive-padding';
+
+@import 'basscss-addons/modules/media-object';
+@import 'basscss-addons/modules/all';
+@import 'basscss-addons/modules/forms';
+@import 'basscss-addons/modules/input-range';
+@import 'basscss-addons/modules/progress';
+
+@import 'basscss-addons/modules/btn';
+@import 'basscss-addons/modules/btn-primary';
+@import 'basscss-addons/modules/btn-outline';
+@import 'basscss-addons/modules/btn-sizes';
+
+@import 'basscss-addons/modules/colors';
+@import 'basscss-addons/modules/background-colors';
+@import 'basscss-addons/modules/border-colors';
+@import 'basscss-addons/modules/darken';
+@import 'basscss-addons/modules/lighten';
+@import 'basscss-addons/modules/background-images';
+*/
+
+
+:root {
+  --dark-gray: #888;
+  --body-background-color: green;
+  --link-color: var(--dark-gray);
+  --link-text-decoration: none;
+  font-size: 16px;
+}
+
+@media (min-width: 25em) and (max-width: 50em) {
+  :root {
+    font-size: calc( 16px + (24 - 16) * ( (100vw - 25em) / ( 800 - 400) ));
+  }
+}
+
+@media (min-width: 50em) {
+  :root {
+    font-size: 24px;
+  }
+}
+
+mw-1 { max-width: 17rem }
+
+img {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 100%;
+}
